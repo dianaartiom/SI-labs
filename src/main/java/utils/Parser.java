@@ -1,4 +1,7 @@
+package utils;
+
 import Client.Client;
+import Client.PortScanner;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -22,9 +25,13 @@ public class Parser {
             Client.get(80, parsedExpr[1], "GET / HTTP/1.1\nHost: agora.md\r\n\r\n");
         } else if (parsedExpr[3].equals("verbose")) {
             String[] splitByLine = parsedExpr[parsedExpr.length-1].split("-");
+
             int startPort = Integer.valueOf(splitByLine[0]);
             int endPort = Integer.valueOf(splitByLine[1]);
-            HashMap<Integer, String> hashMap = client.scanPorts(parsedExpr[1], startPort, endPort);
+
+            PortScanner portScanner = new PortScanner();
+            portScanner.scanPortsAsync(parsedExpr[1], startPort, endPort);
+            HashMap<Integer, String> hashMap =  portScanner.getPortsStatus(startPort);
 
             for (int i = startPort; i <= endPort; i++) {
                 System.out.println(i + " : " + hashMap.get(i));
@@ -32,7 +39,13 @@ public class Parser {
         } else if (parsedExpr[2].equals("-s")) {
             LOGGER.info("Started scanning the ports.");
             String[] splitByLine = parsedExpr[parsedExpr.length-1].split("-");
-            client.scanPorts(parsedExpr[1], Integer.valueOf(splitByLine[0]), Integer.valueOf(splitByLine[1]));
+
+            int startPort = Integer.valueOf(splitByLine[0]);
+            int endPort = Integer.valueOf(splitByLine[1]);
+
+            PortScanner portScanner = new PortScanner();
+            portScanner.scanPortsAsync(parsedExpr[1], startPort, endPort);
+            HashMap<Integer, String> hashMap =  portScanner.getPortsStatus(startPort);
         }
     }
 }

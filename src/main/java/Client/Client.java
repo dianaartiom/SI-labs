@@ -17,35 +17,6 @@ public class Client {
 
     public Client() { }
 
-    /* I responsibly declare that I used source -
-     * https://stackoverflow.com/questions/11547082/fastest-way-to-scan-ports-with-java*/
-    public HashMap<Integer, String> scanPorts(String host, int startingPort, int endingPort)
-            throws ExecutionException, InterruptedException {
-        final ExecutorService es = Executors.newFixedThreadPool(10);
-        final int timeout = 300;
-        final List<Future<Boolean>> futures = new ArrayList<>();
-
-        for (int port = startingPort; port <= endingPort; port++) {
-            futures.add(ClientHelper.portIsOpen(es, host, port, timeout));
-        }
-        es.shutdown();
-        int openPorts = 0, i = startingPort;
-        HashMap<Integer, String> hashMap = new HashMap<>();
-
-        for (final Future<Boolean> f : futures) {
-            if (f.get()) {
-                hashMap.put(i, "open");
-                openPorts++;
-            } else {
-                hashMap.put(i, "closed");
-            }
-            i++;
-        }
-        System.out.println("There are " + openPorts + " open ports on host "
-                + host + " (probed with a timeout of " + timeout + "ms)");
-        return hashMap;
-    }
-
     public void TCPMessage(String host, int port, String _message) throws IOException {
         Socket socket = new Socket(host, port);
         PrintStream PS = new PrintStream(socket.getOutputStream());

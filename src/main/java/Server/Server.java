@@ -32,8 +32,7 @@ public class Server {
             PS.println("Message received. ");
         }
         socket.close();
-    }
-
+}
     public Server() throws IOException {
     }
 }
