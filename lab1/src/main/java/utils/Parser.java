@@ -8,11 +8,24 @@ import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Logger;
 
+/**
+ * Parser - the most ugly part of this project. It analyzes the args
+ * and calls the appropriate functionality.
+ */
 public class Parser {
 
+    /** client used for get http method and tcp communication */
     private Client client = new Client();
+    /** hater of sout */
     private static final Logger LOGGER = Logger.getLogger( Parser.class.getName() );
 
+    /**
+     * Method for parsing the input parameter.
+     * @param parsedExpr = args[]
+     * @throws IOException
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
     public void parse(String[] parsedExpr) throws IOException, ExecutionException, InterruptedException {
         System.out.println(parsedExpr);
         if (parsedExpr[2].equals("-p")) {

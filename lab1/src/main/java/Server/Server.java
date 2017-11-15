@@ -7,8 +7,16 @@ import java.io.PrintStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * TCP server for receiving(and echoing) the message from a TCP client.
+ */
 public class Server {
 
+    /**
+     * Run the server class.
+     * @param args
+     * @throws IOException
+     */
     public static void main(String[] args) throws IOException {
         Server server = new Server();
         while (true) {
@@ -16,6 +24,11 @@ public class Server {
         }
     }
 
+    /**
+     * Running logic: where the serverSocket is waiting for
+     * the client to connect and to communicate with it.
+     * @throws IOException
+     */
     public void run() throws IOException {
         ServerSocket serverSocket = new ServerSocket(8083);
 
@@ -32,7 +45,12 @@ public class Server {
             PS.println("Message received. ");
         }
         socket.close();
-}
+    }
+
+    /**
+     * Empty constructor
+     * @throws IOException
+     */
     public Server() throws IOException {
     }
 }

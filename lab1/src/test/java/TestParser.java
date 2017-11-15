@@ -5,6 +5,10 @@ import java.util.logging.Logger;
 
 import static org.junit.Assert.assertTrue;
 
+/**
+ * Thi class is only used for understanding whether my logic,
+ * while writing the parser is correct.
+ */
 public class TestParser {
 
     private static final Logger LOGGER = Logger.getLogger( Parser.class.getName() );
@@ -49,7 +53,7 @@ public class TestParser {
         assertTrue(message.equals("someme ssage"));
     }
 
-    /* The following method checks the input string
+    /** The following method checks the input string
      * for verbouseScanMethod
      */
     @Test
