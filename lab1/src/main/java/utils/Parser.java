@@ -23,6 +23,7 @@ public class Parser {
             client.TCPMessage(parsedExpr[1], Integer.valueOf(parsedExpr[3]), string);
         }  else if (parsedExpr[2].equals("-get")) {
             Client.get(80, parsedExpr[1], "GET / HTTP/1.1\nHost: agora.md\r\n\r\n");
+
         } else if (parsedExpr[3].equals("verbose")) {
             String[] splitByLine = parsedExpr[parsedExpr.length-1].split("-");
 

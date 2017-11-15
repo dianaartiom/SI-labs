@@ -33,44 +33,38 @@ public class Client {
         LOGGER.info("Connection closed.");
     }
 
-    public static String get(int portNo, String portAddress, String command) throws IOException {
+    /* Functionality for get */
 
-        StringBuilder responseString = new StringBuilder();
-        PrintWriter writer = null;
-        BufferedReader bufferedReader = null;
-        Socket clientSocket = null;
+    public static void get(int port, String host, String command) throws IOException, InterruptedException {
+        Socket socket = new Socket(host, port);
+        socket.setSoTimeout(7000);
 
-        try {
-            clientSocket = new Socket(portAddress, portNo);
-            if (!clientSocket.isConnected())
-                throw new SocketException("Could not connect to Socket");
+        BufferedWriter out = new BufferedWriter(
+                new OutputStreamWriter(socket.getOutputStream(), "UTF8"));
+        BufferedReader in = new BufferedReader(
+                new InputStreamReader(socket.getInputStream()));
 
-            clientSocket.setKeepAlive(true);
+        sendMessage(out, command);
+        readResponse(in);
 
-            writer = new PrintWriter(clientSocket.getOutputStream(), true);
-            writer.println(command);
-            writer.flush();
+        out.close();
+        in.close();
+    }
 
-            bufferedReader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-            String str;
+    private static void sendMessage(BufferedWriter out, String command) throws IOException {
+        System.out.println(" * Request");
 
-            while (!(str = bufferedReader.readLine()).equals(null)) {
-                responseString.append(bufferedReader.readLine());
-                System.out.println(str);
-                if (str.equals("0")) {
-                    break;
-                }
-            }
+        out.write(command + "\r\n\r\n");
+        out.flush();
+    }
 
-        } finally {
-            if (writer != null)
-                writer.close();
-            if (bufferedReader != null)
-                bufferedReader.close();
-            if (clientSocket != null)
-                clientSocket.close();
+    private static void readResponse(BufferedReader in) throws IOException {
+        System.out.println("\n * Response");
+
+        String line;
+        while ((line = in.readLine()) != null) {
+            System.out.println(line);
+            if (line.equals("0")) { break; }
         }
-
-        return responseString.toString();
     }
 }
