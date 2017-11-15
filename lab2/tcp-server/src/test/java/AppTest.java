@@ -1,11 +1,4 @@
-import org.databene.contiperf.PerfTest;
-import org.databene.contiperf.Required;
-import org.databene.contiperf.junit.ContiPerfRule;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
 
-import java.io.IOException;
 
 public class AppTest {
 
