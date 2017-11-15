@@ -1,5 +1,9 @@
 import java.net.MalformedURLException;
 
+/**
+ * I responsibly declared that I've used the following source:
+ * https://github.com/Connor-F/jSlowLoris/blob/master/src/Main.java
+ */
 public class Main {
     public static void main(String[] args) throws MalformedURLException {
         if(args.length != 4)
