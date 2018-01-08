@@ -4,6 +4,12 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 
+/**
+ * Used REPOS for learning purposes:
+ * https://github.com/senges/SlowLoris-Attack/blob/master/src/main/Hit.java
+ * https://github.com/MarcusAdauge/SlowLoris
+ */
+
 public class App extends Thread{
 
     private boolean stop;
