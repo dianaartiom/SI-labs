@@ -25,8 +25,23 @@ compare(input, dictionary) {
 }
 ```
 
-In order to make the program extensible for many more languages, I have split the logic, giving the developer the possibility to add the as many languages as (s)he wants, and to implement the logic for matchers and shifters only. The following image shows the architecture of the project.
-##### Todo input image
+In order to make the program extensible for many more languages, I have split the logic, giving the developer the possibility to add the as many languages as (s)he wants, and to implement the logic for matchers and shifters only. The following images explain the architecture of the project. <br />
+
+**Language** is an abstract class having only the responsibility to load the dictionary, according to the name. It is an abstract class. The only ones to be instantiated are the child classes EnLanguage and RoLanguage. Note that any number of languages can be added.This can be simply be done by creating a NeLangClass, extend the Language class and assign a value for name as follows:
+```java
+public class NewLangClass extends Language {
+
+    public NewLangClass() {
+        this.name = "english";
+    }
+}
+```
+The dictionary of the language is a top 100 frequent words loaded in a file in resources folder.  
+
+![alt text](img/languages.png "Languages")
+
+Same straightforward logic is being followed for the matchers and shifters of each language added. 
+
 ##### Answers
 For the deadline:
 ```
