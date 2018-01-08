@@ -20,17 +20,18 @@ What I do is:
 2. initialize each of the sockets in array
 3. send partial request to each socket
 4. keep the connection alive
-5. send fake header fields with a timeout
-6. repeat 
+    a. send fake header fields with a timeout
+    b. repeat 
 ```
-![alt text](img/lab3-si.PNG "Sending fake fields")
 
 ##### Verification 
 As dumb as it might sound, the way I use to test my work is by accessing the hacked page in browser. Voila!
 
 Before:
-![alt text](img/Request.png "Sending fake fields")
+![alt text](img/Request.png "Successful request")
 
 After:
-![alt text](img/Request-after.png.png "Sending fake fields")
+![alt text](img/Request-after.png "Failing request")
 
+Output of the program:
+![alt text](img/lab3-si.PNG "Sending fake fields")
