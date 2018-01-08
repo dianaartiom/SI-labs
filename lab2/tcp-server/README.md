@@ -27,11 +27,14 @@ What I do is:
 ##### Verification 
 As dumb as it might sound, the way I use to test my work is by accessing the hacked page in browser. Voila!
 
-Before:
+Before: 
+
 ![alt text](img/Request.png "Successful request")
 
 After:
+
 ![alt text](img/Request-after.png "Failing request")
 
 Output of the program:
+
 ![alt text](img/lab3-si.PNG "Sending fake fields")
