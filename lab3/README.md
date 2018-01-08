@@ -61,3 +61,6 @@ After shifting the given input strings, the following was obtained:
 ```
 [my, love, for, the, roman, empire, is, undeniably, greater, than, for, myselfC, the, greatest, empire, ever, to, have, existedC, i, pledge, my, eternal, servitude, and, i, am, forever, bound, to, serve, itA, in, life, and, in, deathC, they, have, merely, given, usO, roadsA, central, heatingA, concreteA, the, calendarA, and, flushing, toilets, and, sewersC]
 ```
+
+##### What could be improved
+The architecture of the program allows adding as many languages as wanted. Unfortunately I did not added the logic itself for shifting with romanian characters. It's not complicated though - the order of the "special chars" should be kept in a HashMap - that could be a potential implementaiton. But yeah, only coming up with ideas won't bring solutions as well as excuses don't burn calories... And I don't know why am I writing this :poop: at all :cry:
