@@ -23,6 +23,17 @@ What I do is:
     a. send fake header fields with a timeout
     b. repeat 
 ```
+##### Run
+In order to run the compiled program, type the following command from the root of the project:
+```$
+$ mvn exec:java -Dexec.mainClass=Main -Dexec.args="165.227.137.80 80 1500 5"
+```
+
+Of course, the args can be different. What should be taken into account is the order of the parameters(and they should be valid):
+1. host
+2. port
+3. timeout
+4. nr of connections
 
 ##### Verification 
 As dumb as it might sound, the way I use to test my work is by accessing the hacked page in browser. Voila!
