@@ -38,7 +38,7 @@ public class NewLangClass extends Language {
 ```
 The dictionary of the language is a top 100 frequent words loaded in a file in resources folder.  
 
-![alt text](img/languages.png "Languages")
+![alt text](img/languges.png "Languages")
 
 Same straightforward logic is being followed for the matchers and shifters of each language added. 
 
